@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[TEST]filmify - Simple Movie Website</title>
+    <!-- use google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:800,900|Poppins:200,300,400,600,700&display=swap" rel="stylesheet">
+    <!-- import main css -->
+    <link rel="stylesheet" href="./css/build.css">
+    <!-- import alpinejs -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- use fontawesome(offline) icons 
+        >> change it when in production with '<script src="https://kit.fontawesome.com/e73adae366.js" crossorigin="anonymous"></script>'
+    -->
+    <script src="./fontawesome/js/all.js"></script>
+</head>
+<body>
+    <header class="relative md:pb-8 lg:pb-12">
+        <nav class="lg:px-16 px-10 py-6 md:py-3 md:flex justify-between items-center" x-data="{ open: false }">
+            <div class="flex justify-between text-xl font-sans font-semibold text-white">
+                <div>
+                    <h1 class="tracking-wide">film.ify</h1>
+                </div>
+                <div class="md:hidden">
+                    <button @click="open=!open"
+                        @keydown.escape="open = false"
+                        >
+                        <i x-show="!open" class="fas fa-bars"></i>
+                        <i x-show="open" class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="ml-4 mt-2 md:flex"
+                    :class="{'block':open, 'hidden':!open}"
+                    x-show="true"
+                    @click.away = "open=false">
+                <ul class="block text-center md:flex items-center justify-between">
+                    <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-thin text-smb tracking-wide text-white">Home</a></li>
+                    <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-thin text-smb tracking-wide text-white">Discover</a></li>
+                    <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-thin text-smb tracking-wide text-white">Watch</a></li>
+                    <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-thin text-smb tracking-wide text-white">Pricing</a></li>
+                    <li class="block my-6 px-2 lg:px-5"><a href="#" class="hover:bg-blgreen hover:text-white border-2 border-blgreen py-2 px-6 md:text-xs rounded-full text-sm lg:text-sm font-semibold tracking-wide text-blgreen"><i class="fas fa-hourglass mx-1"></i> Try 30-day free trial</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="px-12 pt-3 pb-8 lg:pb-4">
+            <!--  movie item #1 -->
+            <div class="movie-slide">
+                <!-- movie background -->
+                <div id="movie1" class="absolute inset-0 -z-10 h-full w-full"></div>
+                <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
+                    <!--- movie poster -->
+                    <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
+                        <img src="./movies/banner/movie1.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
+                    </div>
+                    <!-- movie details -->
+                    <div class="text-center lg:text-left md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                        <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">Blade Runner 2049 <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2017)</span></h1>
+                        <div class="flex flex-col flex-wrap md:flex-col-reverse">
+                            <!-- >> buttons -->
+                            <div class="block sm:flex justify-center lg:mr-auto">
+                                <button style="background-color: rgba(32, 230, 193, 0.5); border: 4px solid rgba(32, 230, 193, 0.005);" onmouseover="this.style.backgroundColor='#21E6C1'" onmouseout="this.style.color='';this.style.backgroundColor='rgba(32, 230, 193, 0.5)'" class="uppercase py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 rounded-full"><i class="fas fa-play-circle fa-lg"></i> Watch Now</button>
+                                <button class="border-4 border-blgreen py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 text-blgreen hover:bg-blgreen hover:border-blgreen hover:text-white"><i class="fas fa-forward fa-lg"></i> View Trailer</button>
+                            </div>
+                            <!-- >> text -->
+                            <div class="p-6 md:py-3">
+                                <div class="line-clamp-3 md:line-clamp-2 leading-loose overflow-hidden">
+                                    <p class="font-light text-lg">Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.</p>
+                                </div>
+                                <a href="#" class="text-blgreen md:float-right">Read More</a>
+                                <!-- >> other info -->
+                                <div class="py-4 lg:mt-3">
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Director:</h4>
+                                        <p class="underline text-lgray tracking-wide">Denis Villeneuve</p>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Cast:</h4>
+                                        <p class="underline text-lgray tracking-wide">Ryan Gosling, Harrison Ford, Ana de Armas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--  movie item #2 -->
+            <div class="movie-slide">
+                <!-- movie background -->
+                <div id="movie2" class="absolute inset-0 -z-10 h-full w-full"></div>
+                <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
+                    <!--- movie poster -->
+                    <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
+                        <img src="./movies/banner/movie2.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
+                    </div>
+                    <!-- movie details -->
+                    <div class="text-center lg:text-left md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                        <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">Avengers: Endgame <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2019)</span></h1>
+                        <div class="flex flex-col flex-wrap md:flex-col-reverse">
+                            <!-- >> buttons -->
+                            <div class="block sm:flex justify-center lg:mr-auto">
+                                <button style="background-color: rgba(32, 230, 193, 0.5); border: 4px solid rgba(32, 230, 193, 0.005);" onmouseover="this.style.backgroundColor='#21E6C1'" onmouseout="this.style.color='';this.style.backgroundColor='rgba(32, 230, 193, 0.5)'" class="uppercase py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 rounded-full"><i class="fas fa-play-circle fa-lg"></i> Watch Now</button>
+                                <button class="border-4 border-blgreen py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 text-blgreen hover:bg-blgreen hover:border-blgreen hover:text-white"><i class="fas fa-forward fa-lg"></i> View Trailer</button>
+                            </div>
+                            <!-- >> text -->
+                            <div class="p-6 md:py-3">
+                                <div class="line-clamp-3 md:line-clamp-2 leading-loose overflow-hidden">
+                                    <p class="font-light text-lg">After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.</p>
+                                </div>
+                                <a href="#" class="text-blgreen md:float-right">Read More</a>
+                                <!-- >> other info -->
+                                <div class="py-4 lg:mt-3">
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Director:</h4>
+                                        <p class="underline text-lgray tracking-wide">Anthony Russo</p>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Cast:</h4>
+                                        <p class="underline text-lgray tracking-wide">Robert Downey Jr., Chris Evans, Mark Ruffalo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  movie item #3 -->
+            <div class="movie-slide">
+                <!-- movie background -->
+                <div id="movie3" class="absolute inset-0 -z-10 h-full w-full"></div>
+                <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
+                    <!--- movie poster -->
+                    <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
+                        <img src="./movies/banner/movie3.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
+                    </div>
+                    <!-- movie details -->
+                    <div class="text-center lg:text-left md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                        <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">P.K. <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2014)</span></h1>
+                        <div class="flex flex-col flex-wrap md:flex-col-reverse">
+                            <!-- >> buttons -->
+                            <div class="block sm:flex justify-center lg:mr-auto">
+                                <button style="background-color: rgba(32, 230, 193, 0.5); border: 4px solid rgba(32, 230, 193, 0.005);" onmouseover="this.style.backgroundColor='#21E6C1'" onmouseout="this.style.color='';this.style.backgroundColor='rgba(32, 230, 193, 0.5)'" class="uppercase py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 rounded-full"><i class="fas fa-play-circle fa-lg"></i> Watch Now</button>
+                                <button class="border-4 border-blgreen py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 text-blgreen hover:bg-blgreen hover:border-blgreen hover:text-white"><i class="fas fa-forward fa-lg"></i> View Trailer</button>
+                            </div>
+                            <!-- >> text -->
+                            <div class="p-6 md:py-3">
+                                <div class="line-clamp-3 md:line-clamp-2 leading-loose overflow-hidden">
+                                    <p class="font-light text-lg">A stranger in the city asks questions no one has asked before. Known only by his initials, the man's innocent questions and childlike curiosity take him on a journey of love, laughter and letting go.</p>
+                                </div>
+                                <a href="#" class="text-blgreen md:float-right">Read More</a>
+                                <!-- >> other info -->
+                                <div class="py-4 lg:mt-3">
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Director:</h4>
+                                        <p class="underline text-lgray tracking-wide">Rajkumar Hirani</p>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Cast:</h4>
+                                        <p class="underline text-lgray tracking-wide">Aamir Khan, Anushka Sharma, Sushant Singh Rajput</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  movie item #4 -->
+            <div class="movie-slide">
+                <!-- movie background -->
+                <div id="movie4" class="absolute inset-0 -z-10 h-full w-full"></div>
+                <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
+                    <!--- movie poster -->
+                    <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
+                        <img src="./movies/banner/movie4.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
+                    </div>
+                    <!-- movie details -->
+                    <div class="text-center lg:text-left md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                        <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">Hacksaw Ridge <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2016)</span></h1>
+                        <div class="flex flex-col flex-wrap md:flex-col-reverse">
+                            <!-- >> buttons -->
+                            <div class="block sm:flex justify-center lg:mr-auto">
+                                <button style="background-color: rgba(32, 230, 193, 0.5); border: 4px solid rgba(32, 230, 193, 0.005);" onmouseover="this.style.backgroundColor='#21E6C1'" onmouseout="this.style.color='';this.style.backgroundColor='rgba(32, 230, 193, 0.5)'" class="uppercase py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 rounded-full"><i class="fas fa-play-circle fa-lg"></i> Watch Now</button>
+                                <button class="border-4 border-blgreen py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 text-blgreen hover:bg-blgreen hover:border-blgreen hover:text-white"><i class="fas fa-forward fa-lg"></i> View Trailer</button>
+                            </div>
+                            <!-- >> text -->
+                            <div class="p-6 md:py-3">
+                                <div class="line-clamp-3 md:line-clamp-2 leading-loose overflow-hidden">
+                                    <p class="font-light text-lg">WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people and becomes the first Conscientious Objector in American history to receive the Congressional Medal of Honor.</p>
+                                </div>
+                                <a href="#" class="text-blgreen md:float-right">Read More</a>
+                                <!-- >> other info -->
+                                <div class="py-4 lg:mt-3">
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Director:</h4>
+                                        <p class="underline text-lgray tracking-wide">Mel Gibson</p>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Cast:</h4>
+                                        <p class="underline text-lgray tracking-wide">Andrew Garfield, Sam Worthington, Vince Vaughn</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  movie item #5 -->
+            <div class="movie-slide">
+                <!-- movie background -->
+                <div id="movie5" class="absolute inset-0 -z-10 h-full w-full"></div>
+                <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
+                    <!--- movie poster -->
+                    <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
+                        <img src="./movies/banner/movie5.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
+                    </div>
+                    <!-- movie details -->
+                    <div class="text-center lg:text-left md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                        <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">Chef <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2014)</span></h1>
+                        <div class="flex flex-col flex-wrap md:flex-col-reverse">
+                            <!-- >> buttons -->
+                            <div class="block sm:flex justify-center lg:mr-auto">
+                                <button style="background-color: rgba(32, 230, 193, 0.5); border: 4px solid rgba(32, 230, 193, 0.005);" onmouseover="this.style.backgroundColor='#21E6C1'" onmouseout="this.style.color='';this.style.backgroundColor='rgba(32, 230, 193, 0.5)'" class="uppercase py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 rounded-full"><i class="fas fa-play-circle fa-lg"></i> Watch Now</button>
+                                <button class="border-4 border-blgreen py-3 px-8 mx-8 sm:mx-2 text-lg font-semibold tracking-wide my-1 text-blgreen hover:bg-blgreen hover:border-blgreen hover:text-white"><i class="fas fa-forward fa-lg"></i> View Trailer</button>
+                            </div>
+                            <!-- >> text -->
+                            <div class="p-6 md:py-3">
+                                <div class="line-clamp-3 md:line-clamp-2 leading-loose overflow-hidden">
+                                    <p class="font-light text-lg">When Chef Carl Casper suddenly quits his job at a prominent Los Angeles restaurant after refusing to compromise his creative integrity for its controlling owner, he is left to figure out what's next. Finding himself in Miami, he teams up with his ex-wife, his friend and his son to launch a food truck. Taking to the road, Chef Carl goes back to his roots to reignite his passion for the kitchen -- and zest for life and love.</p>
+                                </div>
+                                <a href="#" class="text-blgreen md:float-right">Read More</a>
+                                <!-- >> other info -->
+                                <div class="py-4 lg:mt-3">
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Director:</h4>
+                                        <p class="underline text-lgray tracking-wide">Jon Favreau</p>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row">
+                                        <h4 class="text-lg font-bold uppercase tracking-wide md:mx-6">Cast:</h4>
+                                        <p class="underline text-lgray tracking-wide">Jon Favreau, Sofía Vergara, Emjay Anthony</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides(){
+            var i;
+            var slides = document.getElementsByClassName("movie-slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}   
+            slides[slideIndex-1].style.display = "block"; 
+            setTimeout(showSlides, 4000); // Change image every 2 seconds
+        }
+    </script>
+</body>
+</html>

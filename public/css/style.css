@@ -1,0 +1,56 @@
+.movie-slide{
+    display: none;
+}
+#movie1{
+    background: url('../movies/poster/m-poster1.jpg') rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#movie2{
+    background: url('../movies/poster/m-poster2.jpg') rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#movie3{
+    background: url('../movies/poster/m-poster3.jpg') rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#movie4{
+    background: url('../movies/poster/m-poster4.jpg') rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#movie5{
+    background: url('../movies/poster/m-poster5.jpg') rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@responsive{
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+    }
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+    }
+    .line-clamp-4 {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;  
+    }
+}
