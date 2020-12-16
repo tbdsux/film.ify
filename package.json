@@ -4,20 +4,20 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0",
-    "autoprefixer": "^9.7.6",
-    "concurrently": "^5.1.0",
-    "cross-env": "^7.0.2",
+    "@fullhuman/postcss-purgecss": "^3.1.3",
+    "autoprefixer": "^9.8.6",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.0",
+    "postcss-cli": "^7.1.2",
     "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   },
   "devDependencies": {},
   "scripts": {
     "serve": "cross-env NODE_ENV=development concurrently \"postcss base/tailwind.css -o public/css/build.css --watch\"  \"live-server ./public\"",
-    "development": "cross-env NODE_ENV=development postcss base/tailwind.css -o public/css/build.css",
-    "production": "cross-env NODE_ENV=production postcss base/tailwind.css -o public/css/build.css",
+    "dev": "cross-env NODE_ENV=development postcss base/tailwind.css -o public/css/build.css",
+    "prod": "cross-env NODE_ENV=production postcss base/tailwind.css -o public/css/build.css",
     "start": "npm run serve"
   },
   "keywords": [],

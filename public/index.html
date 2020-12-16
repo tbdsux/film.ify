@@ -17,7 +17,7 @@
 <body>
     <header class="relative md:pb-8 lg:pb-12">
         <nav class="lg:px-16 px-4 sm:px-10 py-6 md:py-3 md:flex justify-between items-center" x-data="{ open: false }">
-            <div class="flex justify-between text-xl font-sans font-bold text-white">
+            <div class="flex justify-between text-xl font-sans font-bold text-white z-50">
                 <div>
                     <h1 class="tracking-wide">film.ify</h1>
                 </div>
@@ -34,7 +34,7 @@
                     :class="{'block':open, 'hidden':!open}"
                     x-show="true"
                     @click.away = "open=false">
-                <ul class="block text-center md:flex items-center justify-between">
+                <ul class="block text-center md:flex items-center justify-between z-50">
                     <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-light text-smb tracking-wide text-white">Home</a></li>
                     <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-light text-smb tracking-wide text-white">Discover</a></li>
                     <li class="block my-3 px-2 lg:px-5"><a href="#" class="hover:text-blgreen font-light text-smb tracking-wide text-white">Watch</a></li>
@@ -53,11 +53,11 @@
                 <div class="mx-auto flex flex-col flex-wrap md:flex-row lg:w-11/12 justify-between items-center">
                     <!--- movie poster -->
                     <div class="h-auto w-2/3 sm:w-2/4 md:w-1/4 lg:w-4/10 mx-auto relative">
-                        <img src="./movies/banner/movie1.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0">
+                        <img src="./movies/banner/movie1.jpg" alt="" class="h-auto w-full object-cover flex-shrink-1 flex-grow-0 z-40">
                         <h5 class="absolute top-0 right-0 bg-lred -mr-2 -mt-2 text-white py-2 px-4 tracking-wider text-sm font-semibold">HOT</h5>
                     </div>
                     <!-- movie details -->
-                    <div class="text-center lg:text-left w-full md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white">
+                    <div class="text-center lg:text-left w-full md:w-3/4 lg:w-5/10 lg:px-12 xl:px-16 text-white z-50">
                         <h1 class="leading-tight font-alt text-3xl tracking-wider uppercase text-pwhite lg:px-6 lg:py-3 lg:text-5xl xl:text-6xl lg:font-black">Blade Runner 2049 <span class="font-sans text-2xl lg:text-3xl font-semibold text-lgray">(2017)</span></h1>
                         <div class="flex flex-col flex-wrap md:flex-col-reverse">
                             <!-- >> buttons -->
